@@ -24,11 +24,9 @@ function bubbleSort($arr, $order) {
     $n = count($arr);
     $swapCount = 0;
 
-    // Bubble Sort
     for ($i = 0; $i < $n - 1; $i++) {
         for ($j = 0; $j < $n - $i - 1; $j++) {
 
-            // Ascending
             if ($order == "asc" && $arr[$j] > $arr[$j + 1]) {
                 $temp = $arr[$j];
                 $arr[$j] = $arr[$j + 1];
@@ -36,7 +34,6 @@ function bubbleSort($arr, $order) {
                 $swapCount++;
             }
 
-            // Descending
             if ($order == "desc" && $arr[$j] < $arr[$j + 1]) {
                 $temp = $arr[$j];
                 $arr[$j] = $arr[$j + 1];
@@ -51,13 +48,12 @@ function bubbleSort($arr, $order) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Convert user input into an array of integers
     $numbers = array_map('intval', explode(",", $_POST["numbers"]));
     $order = $_POST["order"];
 
-    $original = $numbers; // store original array
+    $original = $numbers; 
 
-    // Call sorting function
+   
     $result = bubbleSort($numbers, $order);
 
     echo "<hr>";
